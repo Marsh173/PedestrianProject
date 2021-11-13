@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Frame1
+  - Frame2
+  - Frame3
+  - Frame4
   layers:
   - Default
   - TransparentFX
