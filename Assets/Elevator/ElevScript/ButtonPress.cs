@@ -46,9 +46,15 @@ public class ButtonPress : MonoBehaviour
             }
         }
 
+        /*
         if(start)
         {
-
+            transform.localScale = new Vector2(0.5f, 1.5f);
         }
+        else
+        {
+            transform.localScale = new Vector2(0.5f, 1f);
+        }
+        */
     }
 }
