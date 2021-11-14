@@ -9,13 +9,10 @@ public class Elevator : MonoBehaviour
     public Transform upperpos;
     public Transform downpos;
 
-    bool limit = true;
+    bool uplimit = false;
+    bool downlimit = true;
     public float speed;
 
-    void Start()
-    {
-        
-    }
     void Update()
     {
         ControlElevator();
@@ -25,24 +22,28 @@ public class Elevator : MonoBehaviour
     {
         if(Vector2.Distance(player.position, transform.position)<0.7f)
         {
-            Debug.Log("Enter");
-            //if (Input.GetKeyDown(KeyCode.W) && !limit)
-            if(!limit)
+            if (Input.GetKey(KeyCode.W) && !uplimit)
+            //if(!uplimit)
             {
                 transform.position = Vector2.MoveTowards(transform.position, upperpos.position, speed * Time.deltaTime);
             }
-            if (Input.GetKeyDown(KeyCode.S) && !limit)
+            if (Input.GetKey(KeyCode.S) && !downlimit)
             {
                 transform.position = Vector2.MoveTowards(transform.position, downpos.position, speed * Time.deltaTime);
             }
 
-            if(transform.position.y <= downpos.position.y || transform.position.y >= upperpos.position.y)
+            if(transform.position.y >= upperpos.position.y)
             {
-                limit = true;
+                uplimit = true;
+            }
+            else if(transform.position.y <= downpos.position.y)
+            {
+                downlimit = true;
             }
             else
             {
-                limit = false;
+                uplimit = false;
+                downlimit = false;
             }
 
             /*
