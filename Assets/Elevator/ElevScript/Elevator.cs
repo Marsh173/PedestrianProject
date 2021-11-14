@@ -23,7 +23,6 @@ public class Elevator : MonoBehaviour
         if(Vector2.Distance(player.position, transform.position)<0.7f)
         {
             if (Input.GetKey(KeyCode.W) && !uplimit)
-            //if(!uplimit)
             {
                 transform.position = Vector2.MoveTowards(transform.position, upperpos.position, speed * Time.deltaTime);
             }
@@ -45,16 +44,6 @@ public class Elevator : MonoBehaviour
                 uplimit = false;
                 downlimit = false;
             }
-
-            /*
-            if(transform.position.y <= downpos.position.y)
-            {
-                isdown = true;
-            }
-            else if(transform.position.y >= upperpos.position.y)
-            {
-                isdown = false;
-            }*/
         }
 
         
